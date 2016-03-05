@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Random Images View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RandomImagesViewController" customModule="FlickrRandomImages" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,48 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2XB-kK-j9A">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Get New Image" id="9Nd-fZ-f7v">
+                                        <connections>
+                                            <action selector="getRandomImage:" destination="BYZ-38-t0r" id="YSy-m3-3iO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PLz-mY-g7K">
+                                <rect key="frame" x="0.0" y="75" width="600" height="481"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YM6-gB-gN4">
+                                <rect key="frame" x="274" y="41" width="52" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PLz-mY-g7K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="7Ql-3K-oIH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PLz-mY-g7K" secondAttribute="bottom" constant="44" id="EVo-ZW-nwc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2XB-kK-j9A" secondAttribute="trailing" constant="-20" id="Nvk-KY-2yh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PLz-mY-g7K" secondAttribute="trailing" constant="-20" id="Xf0-o0-59g"/>
+                            <constraint firstItem="YM6-gB-gN4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="21" id="bH0-wx-1ik"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2XB-kK-j9A" secondAttribute="bottom" id="ihn-b1-15d"/>
+                            <constraint firstItem="PLz-mY-g7K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="ved-vt-Cg1"/>
+                            <constraint firstItem="2XB-kK-j9A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="w5L-xR-JJS"/>
+                            <constraint firstItem="YM6-gB-gN4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xMa-ji-q01"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageTitle" destination="YM6-gB-gN4" id="5e7-Zt-eoB"/>
+                        <outlet property="imageView" destination="PLz-mY-g7K" id="lf9-Vs-IAO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="444" y="397"/>
         </scene>
     </scenes>
 </document>
